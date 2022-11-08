@@ -41,6 +41,7 @@ public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>, 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.AddInterceptors(_auditableEntitySaveChangesInterceptor);
+        optionsBuilder.UseNpgsql("User ID =postgres;Password=password;Server=localhost;Port=5432;Database=sampledb; Integrated Security=true;Pooling=true;");
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
