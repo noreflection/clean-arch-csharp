@@ -19,14 +19,12 @@ public class UpdateTodoItemCommandHandler : IRequestHandler<UpdateTodoItemComman
     private readonly IApplicationDbContext _context;
 
     public UpdateTodoItemCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
+        => _context = context;
 
     public async Task<Unit> Handle(UpdateTodoItemCommand request, CancellationToken cancellationToken)
     {
         var entity = await _context.TodoItems
-            .FindAsync(new object[] { request.Id }, cancellationToken);
+            .FindAsync(new object[] {request.Id}, cancellationToken);
 
         if (entity == null)
         {

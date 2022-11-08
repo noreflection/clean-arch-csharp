@@ -1,8 +1,7 @@
 ﻿using MediatR;
-
 using Microsoft.AspNetCore.Mvc;
 
-namespace clean_arch.WebUI.Controllers;
+namespace PresentationLayer.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

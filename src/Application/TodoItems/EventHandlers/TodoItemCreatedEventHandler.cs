@@ -9,9 +9,7 @@ public class TodoItemCreatedEventHandler : INotificationHandler<TodoItemCreatedE
     private readonly ILogger<TodoItemCreatedEventHandler> _logger;
 
     public TodoItemCreatedEventHandler(ILogger<TodoItemCreatedEventHandler> logger)
-    {
-        _logger = logger;
-    }
+        => _logger = logger;
 
     public Task Handle(TodoItemCreatedEvent notification, CancellationToken cancellationToken)
     {

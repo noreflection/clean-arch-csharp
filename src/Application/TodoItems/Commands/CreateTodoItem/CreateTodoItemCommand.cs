@@ -16,10 +16,8 @@ public class CreateTodoItemCommandHandler : IRequestHandler<CreateTodoItemComman
 {
     private readonly IApplicationDbContext _context;
 
-    public CreateTodoItemCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
+    public CreateTodoItemCommandHandler(IApplicationDbContext context) 
+        => _context = context;
 
     public async Task<int> Handle(CreateTodoItemCommand request, CancellationToken cancellationToken)
     {

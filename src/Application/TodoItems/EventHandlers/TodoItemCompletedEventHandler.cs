@@ -9,9 +9,7 @@ public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemComple
     private readonly ILogger<TodoItemCompletedEventHandler> _logger;
 
     public TodoItemCompletedEventHandler(ILogger<TodoItemCompletedEventHandler> logger)
-    {
-        _logger = logger;
-    }
+        => _logger = logger;
 
     public Task Handle(TodoItemCompletedEvent notification, CancellationToken cancellationToken)
     {

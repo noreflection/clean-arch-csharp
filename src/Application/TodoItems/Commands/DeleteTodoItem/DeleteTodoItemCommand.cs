@@ -13,14 +13,11 @@ public class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTodoItemComman
     private readonly IApplicationDbContext _context;
 
     public DeleteTodoItemCommandHandler(IApplicationDbContext context)
-    {
-        _context = context;
-    }
+        => _context = context;
 
     public async Task<Unit> Handle(DeleteTodoItemCommand request, CancellationToken cancellationToken)
     {
-        var entity = await _context.TodoItems
-            .FindAsync(new object[] { request.Id }, cancellationToken);
+        var entity = await _context.TodoItems.FindAsync(new object[] {request.Id}, cancellationToken);
 
         if (entity == null)
         {
