@@ -4,25 +4,22 @@ using clean_arch.Application.TodoItems.Commands.DeleteTodoItem;
 using clean_arch.Application.TodoItems.Commands.UpdateTodoItem;
 using clean_arch.Application.TodoItems.Commands.UpdateTodoItemDetail;
 using clean_arch.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+using clean_arch.WebUI.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace clean_arch.WebUI.Controllers;
+namespace PresentationLayer.Controllers;
 
 [Authorize]
 public class TodoItemsController : ApiControllerBase
 {
     [HttpGet]
-    public async Task<ActionResult<PaginatedList<TodoItemBriefDto>>> GetTodoItemsWithPagination([FromQuery] GetTodoItemsWithPaginationQuery query)
-    {
-        return await Mediator.Send(query);
-    }
+    public async Task<ActionResult<PaginatedList<TodoItemBriefDto>>> GetTodoItemsWithPagination([FromQuery] GetTodoItemsWithPaginationQuery query) 
+        => await Mediator.Send(query);
 
     [HttpPost]
-    public async Task<ActionResult<int>> Create(CreateTodoItemCommand command)
-    {
-        return await Mediator.Send(command);
-    }
+    public async Task<ActionResult<int>> Create(CreateTodoItemCommand command) 
+        => await Mediator.Send(command);
 
     [HttpPut("{id}")]
     public async Task<ActionResult> Update(int id, UpdateTodoItemCommand command)
