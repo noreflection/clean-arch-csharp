@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "clean_arch.WebUI"
+  "defaultProject": "clean_arch.WebUI",
+  "cli": {
+    "analytics": false
+  }
 }
